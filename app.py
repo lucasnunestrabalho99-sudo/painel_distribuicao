@@ -116,7 +116,7 @@ def carregar_dados():
     
     for col_dt in ['Data Cadastro', 'Data Últ. Compra', 'Data Bloq.', 'data_conclusao', 'abertura', 'ultima_atualizacao']:
         if col_dt in df_c.columns:
-            df_c[f'{col_dt}_dt'] = pd.to_datetime(df_c[col_dt], errors='coerce')
+            df_c[f'{col_dt}_dt'] = pd.to_datetime(df_c[col_dt], errors='coerce', dayfirst=True)
             
     df_c['Endereço Completo (Receita)'] = df_c.apply(unificar_endereco_receita, axis=1)
     
